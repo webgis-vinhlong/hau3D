@@ -7,7 +7,8 @@ Website tương tác tập trung vào giải phẫu **hàu cửa sông _Crassost
 - Mô hình WebGL 360° với mở vỏ, tách lớp, hotspot và mô phỏng dòng nước lọc.
 - 10 cấu trúc: vỏ, màng áo, mang, xúc biện môi, miệng, khối tạng, tuyến sinh dục, cơ khép, tim và ruột sau.
 - Tìm kiếm, lọc theo hệ, ẩn/hiện từng lớp và định vị cơ quan.
-- Ba chế độ: **Mô hình 3D**, **Tiêu bản thật**, **Lưới 3D**.
+- Bốn chế độ: **3D chân thực nhúng từ V2Fun**, **Giải phẫu lớp WebGL**, **Tiêu bản thật**, **Wireframe**.
+- Chế độ V2Fun có trạng thái tải, toàn màn hình, mở cửa sổ riêng và nút chuyển sang mô hình nội bộ khi dịch vụ ngoài không khả dụng.
 - Giao diện xanh đại dương, responsive, font sans-serif và tiếng Việt UTF-8.
 - Ảnh tiêu bản được tối ưu WebP để tải nhanh trên GitHub Pages.
 

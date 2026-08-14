@@ -40,12 +40,22 @@
 
       <section class="viewer-panel" aria-label="Mô hình và tiêu bản hàu">
         <div class="viewer-topline">
-          <div><span class="live-dot"></span><span id="view-label">MÔ HÌNH TƯƠNG TÁC</span></div>
-          <div class="view-tabs" role="tablist" aria-label="Chế độ hiển thị"><button class="active" data-view="model" role="tab" aria-selected="true">Mô hình 3D</button><button data-view="specimen" role="tab" aria-selected="false">Tiêu bản thật</button><button data-view="wireframe" role="tab" aria-selected="false">Lưới 3D</button></div>
+          <div><span class="live-dot"></span><span id="view-label">MÔ HÌNH 3D CHÂN THỰC</span></div>
+          <div class="view-tabs" role="tablist" aria-label="Chế độ hiển thị"><button class="active" data-view="v2fun" role="tab" aria-selected="true">3D chân thực</button><button data-view="model" role="tab" aria-selected="false">Giải phẫu lớp</button><button data-view="specimen" role="tab" aria-selected="false">Tiêu bản</button><button data-view="wireframe" role="tab" aria-selected="false">Wireframe</button></div>
           <span class="orientation">LƯNG <b>↑</b> BỤNG</span>
         </div>
         <div class="viewer-stage">
-          <div id="scene" class="scene active" data-view-panel="model" aria-label="Mô hình 3D hàu. Kéo để xoay, cuộn để thu phóng." tabindex="0"><div class="scene-glow"></div><div class="scene-labels" id="scene-labels"></div></div>
+          <div class="v2fun-frame active" data-view-panel="v2fun" id="v2fun-frame">
+            <div class="v2fun-loading" id="v2fun-loading"><span class="loader-ring"></span><b>Đang nạp tiêu bản 3D chân thực</b><small>Mô hình được truyền trực tiếp từ V2Fun</small></div>
+            <iframe id="v2fun-embed" src="https://v2fun.ai/work/2088178130061725698?workId=2088178130078502914" title="Mô hình hàu 3D chân thực trên V2Fun" loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="fullscreen; autoplay; accelerometer; gyroscope; xr-spatial-tracking; clipboard-write" allowfullscreen></iframe>
+            <div class="embed-badge"><i></i><span><b>REALISTIC 3D</b> · V2Fun Embed</span></div>
+            <div class="embed-actions">
+              <button id="v2fun-fullscreen" type="button" title="Xem toàn màn hình"><svg viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg><span>Toàn màn hình</span></button>
+              <a href="https://v2fun.ai/work/2088178130061725698?workId=2088178130078502914" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24"><path d="M14 3h7v7M10 14 21 3M21 14v7H3V3h7"/></svg><span>Mở riêng</span></a>
+            </div>
+            <div class="embed-fallback" id="embed-fallback"><span>Không thấy mô hình?</span><button type="button" id="use-layer-model">Dùng mô hình giải phẫu lớp</button></div>
+          </div>
+          <div id="scene" class="scene" data-view-panel="model" aria-label="Mô hình giải phẫu lớp 3D của hàu. Kéo để xoay, cuộn để thu phóng." tabindex="0"><div class="scene-glow"></div><div class="scene-labels" id="scene-labels"></div></div>
           <figure class="specimen-frame" data-view-panel="specimen"><img src="assets/images/giai-phau-can-canh.webp" alt="Tiêu bản hàu mở vỏ, nhìn rõ mô mềm và cơ khép vỏ" width="1100" height="619"><figcaption><b>Tiêu bản giải phẫu thật</b><span>Ảnh tham chiếu hình thái ngoài và mô mềm — chọn cơ quan ở bảng trái để đọc mô tả.</span></figcaption></figure>
           <figure class="specimen-frame wireframe-frame" data-view-panel="wireframe"><img src="assets/images/luoi-3d.webp" alt="Lưới đa giác mô hình hàu 3D" width="1100" height="619"><figcaption><b>Lưới hình học 3D</b><span>Thể hiện bề mặt bất quy tắc, độ sâu mảnh vỏ trái và các gờ tăng trưởng.</span></figcaption></figure>
           <div class="tool-rail" aria-label="Công cụ mô hình">
@@ -58,7 +68,7 @@
           <div class="selected-chip"><i id="selected-chip-color"></i><span>ĐANG CHỌN</span><b id="selected-chip-name">Mang</b></div>
           <div class="mouse-help"><span>↔ Kéo để xoay</span><span>⌁ Cuộn để thu phóng</span><span>● Chạm để chọn</span></div>
         </div>
-        <div class="viewer-controls"><div class="opening-control"><span>Độ mở hai mảnh vỏ</span><input id="opening" type="range" min="20" max="100" value="78" aria-label="Độ mở hai mảnh vỏ"><b id="opening-value">78%</b></div><div class="model-stats"><span><i></i>WebGL</span><span>10 lớp giải phẫu</span><span>360°</span></div></div>
+        <div class="viewer-controls"><div class="opening-control"><span id="control-label">Tiêu bản 3D nhúng trực tiếp</span><input id="opening" type="range" min="20" max="100" value="78" aria-label="Độ mở hai mảnh vỏ" disabled><b id="opening-value">V2Fun</b></div><div class="model-stats"><span><i></i><b id="engine-label">ONLINE</b></span><span>10 lớp giải phẫu</span><span>360°</span></div></div>
       </section>
 
       <aside class="detail-panel" id="organ-detail" aria-live="polite">

@@ -126,8 +126,27 @@ $("#reset-view").addEventListener("click",resetCamera);
 function focusSelected(){switchView("model");if(!visible[selected])toggleOrgan(selected);const anchor=anchors[selected]||new THREE.Vector3();const world=anchor.clone();root.localToWorld(world);controls.target.copy(world);camera.position.copy(world.clone().add(new THREE.Vector3(7,6,9)));controls.update();controls.autoRotate=false;$("#rotate").classList.remove("active")}
 $("#focus-organ").addEventListener("click",focusSelected);
 
-function switchView(view){$$("[data-view-panel]").forEach(panel=>panel.classList.toggle("active",panel.dataset.viewPanel===view));$$("[data-view]").forEach(button=>{const active=button.dataset.view===view;button.classList.toggle("active",active);button.setAttribute("aria-selected",String(active))});$("#view-label").textContent=view==="model"?"MÔ HÌNH TƯƠNG TÁC":view==="specimen"?"TIÊU BẢN GIẢI PHẪU THẬT":"LƯỚI HÌNH HỌC 3D";$(".tool-rail").style.display=view==="model"?"block":"none";$(".opening-control").style.opacity=view==="model"?"1":".35";if(view==="model")resize()}
+function switchView(view){
+  $$("[data-view-panel]").forEach(panel=>panel.classList.toggle("active",panel.dataset.viewPanel===view));
+  $$("[data-view]").forEach(button=>{const active=button.dataset.view===view;button.classList.toggle("active",active);button.setAttribute("aria-selected",String(active))});
+  const labels={v2fun:"MÔ HÌNH 3D CHÂN THỰC",model:"MÔ HÌNH GIẢI PHẪU TƯƠNG TÁC",specimen:"TIÊU BẢN GIẢI PHẪU THẬT",wireframe:"LƯỚI HÌNH HỌC 3D"};
+  $("#view-label").textContent=labels[view];
+  $(".tool-rail").style.display=view==="model"?"block":"none";
+  $(".selected-chip").style.display=view==="model"?"flex":"none";
+  $(".mouse-help").style.display=view==="model"?"flex":"none";
+  const slider=$("#opening");
+  slider.disabled=view!=="model";
+  $("#control-label").textContent=view==="model"?"Độ mở hai mảnh vỏ":view==="v2fun"?"Tiêu bản 3D nhúng trực tiếp":"Chế độ ảnh tham chiếu";
+  $("#opening-value").textContent=view==="model"?`${opening}%`:view==="v2fun"?"V2Fun":"IMAGE";
+  $("#engine-label").textContent=view==="model"?"WEBGL":view==="v2fun"?"ONLINE":"REFERENCE";
+  if(view==="model")resize();
+}
 $$("[data-view]").forEach(button=>button.addEventListener("click",()=>switchView(button.dataset.view)));
+
+const embed=$("#v2fun-embed"),embedLoader=$("#v2fun-loading");
+embed.addEventListener("load",()=>embedLoader.classList.add("loaded"));
+$("#use-layer-model").addEventListener("click",()=>switchView("model"));
+$("#v2fun-fullscreen").addEventListener("click",async()=>{try{await $("#v2fun-frame").requestFullscreen()}catch{window.open(embed.src,"_blank","noopener,noreferrer")}});
 
 const pointer=new THREE.Vector2(),raycaster=new THREE.Raycaster();
 renderer.domElement.addEventListener("pointerdown",event=>{const rect=renderer.domElement.getBoundingClientRect();pointer.x=(event.clientX-rect.left)/rect.width*2-1;pointer.y=-(event.clientY-rect.top)/rect.height*2+1;raycaster.setFromCamera(pointer,camera);const hit=raycaster.intersectObjects(root.children,true).find(item=>item.object.userData.organKey);if(hit)setSelected(hit.object.userData.organKey);controls.autoRotate=false;$("#rotate").classList.remove("active")});
@@ -146,4 +165,4 @@ function animate(){
   Object.entries(anchors).forEach(([key,point])=>{const projected=point.clone();root.localToWorld(projected);projected.project(camera);const label=labelEls[key];label.style.transform=`translate(-50%,-50%) translate(${(projected.x*.5+.5)*mount.clientWidth}px,${(-projected.y*.5+.5)*mount.clientHeight}px)`;label.classList.toggle("active",selected===key);label.hidden=!visible[key]});
   controls.update();renderer.render(scene,camera);
 }
-setSelected(selected); animate();
+setSelected(selected); switchView("v2fun"); animate();
