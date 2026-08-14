@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#082328">
+  <meta name="description" content="Atlas 3D tương tác về hình thái, giải phẫu và sinh học hàu Crassostrea belcheri.">
+  <title>Giải phẫu 3D hàu Crassostrea belcheri</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="brand-mark">Cβ</span><span><b>ATLAS HÀU 3D</b><small>Marine Biology Lab</small></span></a>
+    <nav><a href="#atlas">Giải phẫu</a><a href="#morphology">Hình thái</a><a href="#biology">Sinh học</a><a href="#data">Số liệu</a></nav>
+    <a class="taxonomy-pill" href="#taxonomy"><i></i><span>Ostreidae</span><b>MB</b></a>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>01</span> HỒ SƠ SINH HỌC TƯƠNG TÁC</div>
+        <h1>Bên trong một<em>cơ thể lọc sống.</em></h1>
+        <p class="lead">Khám phá hình thái và giải phẫu của hàu cửa sông <i>Crassostrea belcheri</i> — tên chấp nhận hiện nay: <i>Magallana belcheri</i> — qua mô hình 3D có thể xoay, mở vỏ, tách lớp và quan sát dòng lọc.</p>
+        <div class="hero-actions"><a class="primary-action" href="#atlas">Khám phá mô hình <span>↘</span></a><a class="text-action" href="#data">Xem số liệu thực nghiệm</a></div>
+        <dl class="hero-facts"><div><dt>104,8</dt><dd>mm<br>chiều dài mẫu lớn</dd></div><div><dt>5–30</dt><dd>‰<br>biên độ mặn báo cáo</dd></div><div><dt>10</dt><dd>cấu trúc<br>được chú giải</dd></div></dl>
+      </div>
+
+      <div class="hero-model" id="atlas">
+        <div class="model-title"><span>MẪU GIẢI PHẪU / CB–01</span><b>Mô hình giáo dục · không thay thế tiêu bản</b></div>
+        <div class="scene-shell">
+          <div class="scene-stage" id="scene">
+            <div class="scene-hint"><span class="pulse-dot"></span>Kéo để xoay · Cuộn để phóng to · Chạm cơ quan để khám phá</div>
+            <div class="orientation"><span>LƯNG / BẢN LỀ</span><i></i><span>BỤNG / MÉP VỎ</span></div>
+            <div class="scene-labels" id="scene-labels"></div>
+          </div>
+          <div class="scene-controls">
+            <label class="opening-control"><span>Độ mở vỏ</span><input id="opening" type="range" min="8" max="100" value="78"><b id="opening-value">78%</b></label>
+            <div class="control-buttons">
+              <button id="explode" type="button"><span>⌁</span>Tách lớp</button>
+              <button id="filter" type="button"><span>≈</span>Dòng lọc</button>
+              <button id="labels" class="active" type="button"><span>◉</span>Nhãn</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="organ-explorer">
+      <div class="section-intro">
+        <div class="eyebrow"><span>02</span> BẢN ĐỒ CƠ QUAN</div>
+        <h2>Mười cấu trúc.<br><i>Một hệ thống sống.</i></h2>
+        <p>Chọn một cấu trúc để làm nổi bật trên mô hình và đọc chức năng sinh học tương ứng.</p>
+      </div>
+      <div class="organ-list" id="organ-list" role="list"></div>
+      <article class="organ-detail" id="organ-detail">
+        <div class="detail-index" id="detail-index">03</div>
+        <div><p class="detail-latin" id="detail-latin">Ctenidia</p><h3 id="detail-name">Mang</h3><p class="detail-summary" id="detail-summary"></p><p id="detail-text"></p></div>
+        <dl><dt>Chức năng chính</dt><dd id="detail-function"></dd><dt>Vị trí quan sát</dt><dd id="detail-location">Trong khoang áo</dd></dl>
+      </article>
+    </section>
+
+    <section class="morphology" id="morphology">
+      <div class="shell-illustration">
+        <div class="wire-grid"></div>
+        <div class="shell-mark shell-a"></div><div class="shell-mark shell-b"></div>
+        <span>HÌNH THÁI VỎ / PHỎNG DỰNG SỐ</span>
+      </div>
+      <div class="morph-copy">
+        <div class="eyebrow light"><span>03</span> DẤU HIỆU HÌNH THÁI</div>
+        <h2>Không có hai chiếc vỏ<br><i>hoàn toàn giống nhau.</i></h2>
+        <div class="morph-grid">
+          <article><span>VỎ DƯỚI</span><h3>Dày, sâu, bám giá thể</h3><p>Thường trắng hoặc xám; hình dạng chịu ảnh hưởng mạnh của bề mặt nơi hàu cố định.</p></article>
+          <article><span>VỎ TRÊN</span><h3>Nhỏ và mỏng hơn</h3><p>Nâu nhạt, có các lớp vảy sừng đồng tâm kéo từ đỉnh đến mép vỏ.</p></article>
+          <article><span>BIÊN DẠNG</span><h3>Trứng hoặc tam giác kéo dài</h3><p>Chiều dài thường lớn hơn chiều rộng; tỷ lệ dài/rộng quan sát 1,3–1,7.</p></article>
+          <article><span>MẶT TRONG</span><h3>Trắng, có thể có đốm phấn</h3><p>Vết cơ dạng thận hoặc trăng khuyết; màu biến thiên giữa quần thể và tiêu bản.</p></article>
+        </div>
+        <aside class="field-note"><span>GHI CHÚ PHÂN LOẠI</span><p>Không nên nhận dạng loài chỉ bằng màu vết cơ. Hình thái vỏ hàu biến thiên mạnh; xác nhận đáng tin cậy cần kết hợp nhiều dấu hiệu và dữ liệu phân tử khi có thể.</p></aside>
+      </div>
+    </section>
+
+    <section class="biology" id="biology">
+      <div class="section-intro horizontal"><div><div class="eyebrow"><span>04</span> SINH HỌC CHỨC NĂNG</div><h2>Cỗ máy lọc<br><i>của vùng cửa sông.</i></h2></div><p>Hàu trưởng thành sống cố định, chân tiêu giảm. Cơ thể được tổ chức quanh việc tạo dòng nước, lọc hạt, trao đổi khí và đóng vỏ khi gặp bất lợi.</p></div>
+      <div class="flow-diagram">
+        <div class="flow-water" aria-hidden="true"></div>
+        <div class="flow-node"><b>01</b><span>Nước vào</span><small>Mép áo hít</small></div><div class="flow-arrow">→</div>
+        <div class="flow-node featured"><b>02</b><span>Mang giữ hạt</span><small>Lông chuyển + chất nhầy</small></div><div class="flow-arrow">→</div>
+        <div class="flow-node"><b>03</b><span>Xúc biện chọn</span><small>Thức ăn / phân giả</small></div><div class="flow-arrow">→</div>
+        <div class="flow-node"><b>04</b><span>Tiêu hóa</span><small>Dạ dày + tuyến tiêu hóa</small></div>
+      </div>
+      <div class="cycle-grid">
+        <article><span>01</span><h3>Giao tử</h3><p>Trứng và tinh trùng phóng vào cột nước; thụ tinh diễn ra bên ngoài.</p></article>
+        <article><span>02</span><h3>Ấu trùng D</h3><p>Ấu trùng phù du hình chữ D, bắt đầu hình thành hai mảnh vỏ.</p></article>
+        <article><span>03</span><h3>Veliger</h3><p>Bơi và ăn nhờ vành tiêm mao; phát triển cơ quan và đỉnh vỏ.</p></article>
+        <article><span>04</span><h3>Pediveliger</h3><p>Xuất hiện chân tạm thời, thăm dò bề mặt để định cư.</p></article>
+        <article><span>05</span><h3>Hàu giống</h3><p>Bám vĩnh viễn, biến thái; mang và cơ khép phát triển nhanh.</p></article>
+        <article><span>06</span><h3>Trưởng thành</h3><p>Sống cố định, ăn lọc; mô sinh dục tích lũy theo mùa.</p></article>
+      </div>
+    </section>
+
+    <section class="data-section" id="data">
+      <div class="section-intro horizontal"><div><div class="eyebrow"><span>05</span> DỮ LIỆU BẾN TRE</div><h2>Đo trên mẫu thật.<br><i>Đọc bằng ngữ cảnh.</i></h2></div><p>Giá trị trung bình ± độ lệch chuẩn của các đợt thu mẫu tại Bình Đại, Bến Tre (2016–2017); không phải ngưỡng chuẩn cho mọi vùng nuôi.</p></div>
+      <div class="metric-cards"><article><strong>104,8</strong><span>mm</span><h3>Chiều dài vỏ</h3><p>Giá trị trung bình cao nhất ghi nhận</p></article><article><strong>11,5</strong><span>%</span><h3>Tỷ lệ thịt</h3><p>Khoảng quan sát 8,4–11,5%</p></article><article><strong>80,0</strong><span>%</span><h3>Nước trong thịt</h3><p>79,7–85,3% theo đợt mẫu</p></article></div>
+      <div class="data-tables">
+        <article><div class="table-head"><span>HÌNH THÁI & CHẤT LƯỢNG</span><small>mm, g, %</small></div><div class="table-scroll"><table><thead><tr><th>Đợt mẫu</th><th>Dài</th><th>Rộng</th><th>Cả vỏ</th><th>Thịt</th><th>Tỷ lệ thịt</th></tr></thead><tbody><tr><td>6/2016</td><td>104,8 ± 16,2</td><td>66,5 ± 11,5</td><td>111,9 ± 30,0</td><td>13,1 ± 4,7</td><td>11,5 ± 2,4</td></tr><tr><td>8/2016</td><td>96,8 ± 17,5</td><td>57,3 ± 7,9</td><td>77,1 ± 22,9</td><td>6,4 ± 1,9</td><td>8,4 ± 1,2</td></tr><tr><td>11/2016</td><td>98,7 ± 18,8</td><td>67,8 ± 15,0</td><td>115,1 ± 46,9</td><td>10,3 ± 3,9</td><td>9,3 ± 1,4</td></tr><tr><td>1/2017</td><td>82,4 ± 14,9</td><td>61,8 ± 8,9</td><td>64,5 ± 21,2</td><td>6,1 ± 1,8</td><td>9,8 ± 1,9</td></tr></tbody></table></div></article>
+        <article><div class="table-head"><span>MÔI TRƯỜNG NUÔI</span><small>trung bình ± SD</small></div><div class="table-scroll"><table><thead><tr><th>Đợt mẫu</th><th>Độ mặn (‰)</th><th>pH</th><th>Kiềm (mg CaCO₃/L)</th></tr></thead><tbody><tr><td>6/2016</td><td>24,5 ± 0,7</td><td>8,5 ± 0,0</td><td>89,0 ± 0,0</td></tr><tr><td>8/2016</td><td>14,0 ± 5,6</td><td>7,0 ± 0,7</td><td>97,9 ± 12,5</td></tr><tr><td>11/2016</td><td>9,8 ± 0,3</td><td>7,8 ± 0,1</td><td>94,9 ± 10,3</td></tr><tr><td>1/2017</td><td>27,5 ± 0,7</td><td>7,9 ± 0,1</td><td>117,0 ± 12,7</td></tr></tbody></table></div></article>
+      </div>
+    </section>
+
+    <section class="habitat">
+      <div class="habitat-copy"><div class="eyebrow light"><span>06</span> SINH CẢNH & DUNG SAI</div><h2>Sống giữa hai thế giới:<br><i>mặn và lợ.</i></h2><p>Hàu sống bám trên nền cứng ở cửa sông và ven biển. Độ mặn dao động là đặc trưng của sinh cảnh, nhưng biến động cực đoan kéo dài có thể làm giảm lọc và sinh trưởng.</p><div class="salinity-scale"><div class="scale-labels"><span>0‰ NƯỚC NGỌT</span><b>VÙNG BÁO CÁO 5–30‰</b><span>35‰ NƯỚC BIỂN</span></div><div class="scale-bar"><i class="tolerance"></i><i class="preferred"></i><em>20–25‰<small>ổn định, thuận lợi hơn</small></em></div></div><div class="habitat-facts"><div><b>Kiểu sống</b><span>Không cuống, bám cố định</span></div><div><b>Kiểu ăn</b><span>Ăn lọc hạt lơ lửng</span></div><div><b>Phân bố nuôi</b><span>Đông Nam Á; Nam Bộ Việt Nam</span></div></div></div>
+      <div class="habitat-art"><div class="water-lines"></div><div class="oyster-silhouette"></div><span>ESTUARY / TROPICAL COAST</span></div>
+    </section>
+
+    <section class="taxonomy" id="taxonomy">
+      <div><div class="eyebrow"><span>07</span> HỒ SƠ PHÂN LOẠI</div><h2><i>Magallana belcheri</i></h2><p>Tên dùng rộng rãi trong tài liệu Việt Nam: <i>Crassostrea belcheri</i> (G. B. Sowerby II, 1871).</p></div>
+      <ol><li><span>Ngành</span><b>Mollusca</b></li><li><span>Lớp</span><b>Bivalvia</b></li><li><span>Bộ</span><b>Ostreida</b></li><li><span>Họ</span><b>Ostreidae</b></li><li><span>Chi chấp nhận</span><b>Magallana</b></li><li><span>Loài</span><b>M. belcheri</b></li></ol>
+    </section>
+
+    <section class="references">
+      <div><div class="eyebrow light"><span>08</span> NGUỒN & GIỚI HẠN</div><h2>Được xây từ<br><i>dữ liệu có truy vết.</i></h2></div>
+      <div class="reference-list">
+        <a href="https://www.marinespecies.org/aphia.php?p=taxdetails&id=836035" target="_blank" rel="noreferrer"><span>01</span><p><b>World Register of Marine Species</b>Tên chấp nhận và đồng danh của <i>Magallana belcheri</i>.</p><em>↗</em></a>
+        <a href="https://www.fao.org/4/y5720e/y5720e07.htm" target="_blank" rel="noreferrer"><span>02</span><p><b>FAO — Basic bivalve biology</b>Giải phẫu, sinh lý, ăn lọc và sinh sản của nhuyễn thể hai mảnh vỏ.</p><em>↗</em></a>
+        <a href="https://www.fao.org/4/ab717e/ab717e07.htm" target="_blank" rel="noreferrer"><span>03</span><p><b>FAO — Oyster culture in Thailand</b>Đặc điểm nhận dạng và nuôi <i>C. belcheri</i> trong khu vực.</p><em>↗</em></a>
+        <div><span>04</span><p><b>Tạp chí Khoa học Đại học Cần Thơ 54(1B), 2018</b>Đặc điểm kỹ thuật và tài chính của mô hình nuôi hàu tại Bến Tre.</p></div>
+      </div>
+      <aside><b>Lưu ý khoa học</b><p>Mô hình 3D là mô hình giáo dục tổng hợp; kích thước, màu và vị trí tương đối đã được đơn giản hóa để dễ quan sát. Không dùng để chẩn đoán bệnh hoặc định danh loài độc lập.</p></aside>
+    </section>
+  </main>
+  <footer><div class="brand"><span class="brand-mark">Cβ</span><span><b>ATLAS HÀU 3D</b><small>Open learning specimen</small></span></div><p>Học liệu mở về hình thái và sinh học hàu cửa sông.</p><a href="#top">Về đầu trang ↑</a></footer>
+  <script type="module" src="./assets/app.js"></script>
+</body>
+</html>
