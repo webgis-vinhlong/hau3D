@@ -1,56 +1,36 @@
-# Atlas giải phẫu 3D hàu *Crassostrea belcheri*
+# Hàu 3D — Atlas giải phẫu số
 
-Trang học liệu mở mô phỏng hình thái, giải phẫu và sinh học của hàu cửa sông *Crassostrea belcheri* — tên được WoRMS chấp nhận hiện nay là *Magallana belcheri*.
+Website tương tác tập trung vào giải phẫu **hàu cửa sông _Crassostrea belcheri_**. Giao diện ba vùng được thiết kế như một phòng tiêu bản số: thư viện cấu trúc ở bên trái, mô hình/ảnh tiêu bản ở trung tâm và hồ sơ giải phẫu chi tiết ở bên phải.
 
-## Trải nghiệm trực tuyến
+## Tính năng
 
-**GitHub Pages:** https://webgis-vinhlong.github.io/hau3D/
-
-## Chức năng
-
-- Mô hình Three.js xoay 360°, thu phóng và chọn cơ quan trực tiếp.
-- Điều chỉnh độ mở vỏ theo thời gian thực.
-- Chế độ tách lớp giải phẫu.
-- Mô phỏng dòng hạt đi qua hệ thống lọc.
-- Chú giải 10 cấu trúc giải phẫu.
-- Đặc điểm hình thái và số liệu mẫu tại Bình Đại, Bến Tre.
-- Chu kỳ sống, sinh cảnh và vùng độ mặn.
-- Giao diện responsive cho máy tính và điện thoại.
+- Mô hình WebGL 360° với mở vỏ, tách lớp, hotspot và mô phỏng dòng nước lọc.
+- 10 cấu trúc: vỏ, màng áo, mang, xúc biện môi, miệng, khối tạng, tuyến sinh dục, cơ khép, tim và ruột sau.
+- Tìm kiếm, lọc theo hệ, ẩn/hiện từng lớp và định vị cơ quan.
+- Ba chế độ: **Mô hình 3D**, **Tiêu bản thật**, **Lưới 3D**.
+- Giao diện xanh đại dương, responsive, font sans-serif và tiếng Việt UTF-8.
+- Ảnh tiêu bản được tối ưu WebP để tải nhanh trên GitHub Pages.
 
 ## Chạy cục bộ
 
-Trang là HTML/CSS/JavaScript tĩnh, không cần biên dịch. Chạy lệnh:
+Không cần bước build. Chạy một HTTP server tại thư mục dự án:
 
-    python -m http.server 8080
+```bash
+python -m http.server 8080
+```
 
-Sau đó mở http://localhost:8080.
+Sau đó mở `http://localhost:8080`.
 
-Mô hình tải Three.js từ jsDelivr nên cần kết nối Internet trong lần chạy.
+## Công nghệ
 
-## Cấu trúc
+- HTML5, CSS3, JavaScript ES modules
+- Three.js + OrbitControls qua CDN
+- GitHub Actions/GitHub Pages
 
-    .
-    ├── index.html
-    ├── assets/
-    │   ├── app.js
-    │   └── styles.css
-    ├── .github/workflows/pages.yml
-    ├── .nojekyll
-    ├── LICENSE
-    └── README.md
+## Lưu ý khoa học
 
-## Nguồn khoa học
-
-- [World Register of Marine Species — *Magallana belcheri*](https://www.marinespecies.org/aphia.php?p=taxdetails&id=836035)
-- [FAO — Basic bivalve biology](https://www.fao.org/4/y5720e/y5720e07.htm)
-- [FAO — Oyster culture in Thailand](https://www.fao.org/4/ab717e/ab717e07.htm)
-- Tạp chí Khoa học Trường Đại học Cần Thơ, Tập 54, Số 1B (2018), trang 92–100.
-
-## Giới hạn
-
-Mô hình 3D là mô hình giáo dục tổng hợp. Màu, kích thước và vị trí tương đối của cơ quan đã được đơn giản hóa để dễ quan sát; không dùng để chẩn đoán bệnh hoặc định danh loài độc lập.
+Mô hình là sơ đồ giáo dục định hướng, không phải bản quét giải phẫu định lượng. Hình dạng và tỷ lệ mô mềm thay đổi theo kích thước cá thể, mùa sinh sản, độ mặn và điều kiện môi trường. Ảnh tiêu bản trong repository do người dùng cung cấp cho dự án.
 
 ## Giấy phép
 
-MIT — xem [LICENSE](LICENSE).
-
+Mã nguồn: MIT — xem [LICENSE](LICENSE).
